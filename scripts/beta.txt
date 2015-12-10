@@ -2,4 +2,4 @@
 
 git tag 0.1.1-beta1
 git push --tags
-npm publish --tag 0.1.1-beta1
+npm publish --tag beta
