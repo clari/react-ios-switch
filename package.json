@@ -6,6 +6,7 @@
     "index.css"
   ],
   "repository": "clariussystems/react-ios-switch",
+  "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.dev.js",
     "clean": "rm index.js index.css",
