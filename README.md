@@ -3,6 +3,9 @@ React iOS Switch
 [Demo](http://clariussystems.github.io/react-ios-switch)
 
 ```
+import 'react-ios-switch/css/styles.css'
+import Switch from 'react-ios-switch'
+
 <Switch
   className='switch' // optional
   checked={true}
@@ -22,4 +25,4 @@ npm start
 
 TODO
 ---
-- Publish to npm (should publish prebuilt files)
+- GitHub pages

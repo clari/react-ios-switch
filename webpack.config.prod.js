@@ -1,22 +1,22 @@
 var autoprefixer = require('autoprefixer')
+var commonConfig = require('./webpack.config.common')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  entry: [
-    'webpack/hot/dev-server',
-    './example/app'
-  ],
+  entry: './lib/Switch',
   output: {
-    filename: 'app.js',
-    publicPath: '/build/'
+    library: commonConfig.library,
+    libraryTarget: 'umd',
+    filename: `${commonConfig.library}.js`,
+    path: path.join(__dirname, 'build')
   },
   module: {
     loaders: [
       {
         test: /\.js$/,
         include: [
-          path.join(__dirname, 'example'),
           path.join(__dirname, 'lib')
         ],
         loaders: ['babel', 'eslint']
@@ -24,20 +24,14 @@ module.exports = {
       {
         test: /\.scss$/,
         include: [
-          path.join(__dirname, 'example'),
           path.join(__dirname, 'lib')
         ],
-        loaders: ['style', 'css?localIdentName=react-ios-switch-[name]-[local]', 'postcss', 'sass']
+        loader: ExtractTextPlugin.extract('style', [`css?localIdentName=${commonConfig.library}-[name]-[local]`, 'postcss', 'sass'].join('!'))
       }
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new ExtractTextPlugin(`../css/styles.css`)
   ],
-  devServer: {
-    hot: true,
-    inline: true,
-    historyApiFallback: true
-  },
   postcss: [autoprefixer]
 }
