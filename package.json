@@ -1,6 +1,6 @@
 {
   "name": "react-ios-switch",
-  "version": "0.1.2-beta2",
+  "version": "0.1.2",
   "files": [
     "index.js",
     "index.css"
