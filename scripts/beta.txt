@@ -1,5 +1,3 @@
 # Update version in package.json
 
-git tag 0.1.1-beta1
-git push --tags
-npm publish --tag beta
+git tag 0.1.1-beta3 && git push --tags && npm publish --tag beta
