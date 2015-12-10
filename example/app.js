@@ -17,7 +17,7 @@ class App extends React.Component {
   render () {
     return <div className={styles.app}>
       <div className={styles.container}
-        onClick={() => console.log('Escaped click')}>
+        onClick={() => console.log('Clicked background')}>
         <Switch className={styles.switch}
           checked={this.state.flag}
           onChange={value => {
