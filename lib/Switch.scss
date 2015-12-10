@@ -1,0 +1,46 @@
+:local(.button) {
+  background-color: white;
+  border-radius: 50%;
+  height: 18px;
+  left: 2px;
+  top: 2px;
+  width: 18px;
+}
+
+:local(.overlay) {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+:local(.switch) {
+  border-radius: 10px;
+  height: 22px;
+  width: 40px;
+
+  &:local(.switch--enabled) {
+    cursor: pointer;
+
+    :local(.button) {
+      cursor: grab;
+
+      &:active {
+        cursor: grabbing;
+      }
+    }
+
+    &:not(:local(.switch--dragging)) {
+      transition: background-color 0.1s ease-in-out;
+
+      :local(.button) {
+        transition: left 0.1s ease-in-out;
+      }
+    }
+  }
+
+  &:not(:local(.switch--enabled)) {
+    opacity: 0.3;
+  }
+}
