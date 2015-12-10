@@ -17,7 +17,7 @@ import Switch from 'react-ios-switch'
   onChange={checked => ...}/>
 ```
 
-Setup
+Local Development
 ---
 ```
 npm install
