@@ -8,7 +8,7 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.dev.js",
     "clean": "rm index.js index.css",
-    "build": "webpack --config webpack.config.prod.js",
+    "build": "NODE_ENV=production webpack --config webpack.config.prod.js",
     "gh-pages": "NODE_ENV=gh-pages webpack --config webpack.config.gh-pages.js",
     "prepublish": "npm run build"
   },
