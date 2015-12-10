@@ -9,8 +9,8 @@ module.exports = {
   output: {
     library: commonConfig.library,
     libraryTarget: 'umd',
-    filename: `${commonConfig.library}.js`,
-    path: path.join(__dirname, 'build')
+    filename: 'index.js',
+    path: __dirname
   },
   module: {
     loaders: [
@@ -31,7 +31,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin(`../css/styles.css`)
+    new ExtractTextPlugin('index.css')
   ],
   postcss: [autoprefixer]
 }

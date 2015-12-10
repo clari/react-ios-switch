@@ -1,6 +1,6 @@
 # webpack
-build
-css
+index.js
+index.css
 
 # npm
 *.log

@@ -5,7 +5,7 @@ React iOS Switch
 [Demo](http://clariussystems.github.io/react-ios-switch)
 
 ```
-import 'react-ios-switch/css/styles.css'
+import 'react-ios-switch/index.css'
 import Switch from 'react-ios-switch'
 
 <Switch
