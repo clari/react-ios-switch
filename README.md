@@ -1,5 +1,7 @@
 React iOS Switch
 ===
+> This is a [Clari](http://www.clari.com) open source project.
+
 [Demo](http://clariussystems.github.io/react-ios-switch)
 
 ```
@@ -12,8 +14,6 @@ import Switch from 'react-ios-switch'
   enabled={true} // optional
   onChange={...}/>
 ```
-
-This is a [Clari](http://www.clari.com) open source project.
 
 Setup
 ---
