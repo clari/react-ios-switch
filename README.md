@@ -14,7 +14,7 @@ import Switch from 'react-ios-switch'
   enabled={true} // optional
   checkedColor='red' // optional
   uncheckedColor='black' // optional
-  onChange={...}/>
+  onChange={checked => ...}/>
 ```
 
 Setup
