@@ -10,6 +10,7 @@
     "start": "webpack-dev-server --config webpack.config.dev.js",
     "clean": "rm -rf build",
     "build": "webpack --config webpack.config.prod.js",
+    "gh-pages": "webpack --config webpack.config.gh-pages.js",
     "prepublish": "npm run build"
   },
   "devDependencies": {
