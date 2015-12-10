@@ -1,6 +1,6 @@
 {
   "name": "react-ios-switch",
-  "version": "0.1.0",
+  "version": "0.1.1-beta1",
   "main": "js/react-ios-switch.js",
   "files": [
     "js/react-ios-switch.js",
