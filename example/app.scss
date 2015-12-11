@@ -140,13 +140,12 @@ body {
 :local(.navbarLink) {
   border: 1px solid transparent;
   border-radius: 24px;
-  color: scale-color(white, $lightness: -15%);
+  color: scale-color(#f7f7f7, $lightness: -15%);
   font-size: 14px;
-  font-weight: 300;
   text-decoration: none;
 
   &:hover {
-    color: white;
+    color: #f7f7f7;
   }
 }
 
