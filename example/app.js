@@ -12,106 +12,155 @@ class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
+      header: Immutable.Map({
+        flag: false
+      }),
+      switch: Immutable.Map({
+        flag: false
+      }),
+      label: Immutable.Map({
+        flag: false
+      }),
+      colors: Immutable.Map({
+        flag: false
+      }),
       size: Immutable.Map({
         flag: false,
         width: 80,
         height: 44,
         resizing: false
-      }),
-      label: Immutable.Map({
-        flag: false
-      }),
-      color: Immutable.Map({
-        flag: false
       })
     }
   }
 
   render () {
     return <div className={styles.app}>
-      <div className={styles.example}>
-        <ResizableBox className={classNames(styles.resizable, 'react-resizable')}
-          width={this.state.size.get('width')}
-          height={this.state.size.get('height')}
-          minConstraints={[80, 44]}
-          maxConstraints={[300, 200]}
-          onResize={(e, data) => {
+      <div className={styles.navbar}>
+        <a className={styles.navbarLink} href='https://github.com/clariussystems/react-ios-switch'>GitHub</a>
+      </div>
+      <div className={styles.header}>
+        <h1 className={styles.headerTitle}>
+          React iOS Switch
+        </h1>
+        <h2 className={styles.headerSubtitle}>
+          React switch component with a draggable button
+        </h2>
+        <Switch className={styles.headerSwitch}
+          buttonColor='#e9e9e9'
+          checkedColor='#333'
+          uncheckedColor='#333'
+          checked={this.state.header.get('flag')}
+          onChange={checked => {
             this.setState({
-              size: this.state.size.merge({
-                width: data.size.width,
-                height: data.size.height
-              })
+              header: this.state.header.set('flag', checked)
             })
-          }}
-          onResizeStart={() => {
-            this.setState({
-              size: this.state.size.set('resizing', true)
-            })
-          }}
-          onResizeStop={() => {
-            this.setState({
-              size: this.state.size.set('resizing', false)
-            })
-          }}>
-          <Switch className={styles.switch}
-            checked={this.state.size.get('flag')}
-            width={this.state.size.get('width') / 2}
-            height={this.state.size.get('height') / 2}
-            animated={!this.state.size.get('resizing')}
-            onChange={checked => {
-              this.setState({
-                size: this.state.size.set('flag', checked)
-              })
-            }}/>
-        </ResizableBox>
+          }}/>
       </div>
-      <div className={styles.example}>
-        <label className={styles.label}>
-          <Switch className={styles.switch}
-            checked={this.state.label.get('flag')}
-            onChange={checked => {
-              this.setState({
-                label: this.state.size.set('flag', checked)
-              })
-            }}/>
-          Label
-        </label>
+      <div className={styles.examples}>
+        <div className={styles.example}>
+          <div className={styles.exampleDemo}>
+            <Switch
+              checked={this.state.switch.get('flag')}
+              onChange={checked => {
+                this.setState({
+                  switch: this.state.switch.set('flag', checked)
+                })
+              }}/>
+          </div>
+          <pre className={styles.exampleCode}>{`${'<'}Switch
+  checked={bool}
+  onChange={checked => ...}/>`}</pre>
+        </div>
+        <div className={styles.example}>
+          <div className={styles.exampleDemo}>
+            <Switch
+              checked
+              enabled={false}/>
+          </div>
+          <pre className={styles.exampleCode}>{`${'<'}Switch
+  enabled={bool}`}</pre>
+        </div>
+        <div className={styles.example}>
+          <div className={styles.exampleDemo}>
+            <label className={styles.label}>
+              <Switch
+                checked={this.state.label.get('flag')}
+                onChange={checked => {
+                  this.setState({
+                    label: this.state.label.set('flag', checked)
+                  })
+                }}/>
+              <span className={styles.labelText}>Label</span>
+            </label>
+          </div>
+          <pre className={styles.exampleCode}>{`${'<'}label>
+  ${'<'}Switch/>
+  Label
+${'<'}/label>`}</pre>
+        </div>
+        <div className={styles.example}>
+          <div className={styles.exampleDemo}>
+            <Switch
+              buttonColor='#FFDC00'
+              checkedColor='#0074D9'
+              uncheckedColor='black'
+              checked={this.state.colors.get('flag')}
+              onChange={checked => {
+                this.setState({
+                  colors: this.state.colors.set('flag', checked)
+                })
+              }}/>
+          </div>
+          <pre className={styles.exampleCode}>{`${'<'}Switch
+  className={className}
+  buttonColor={color}
+  checkedColor={color}
+  uncheckedColor={color}/>`}</pre>
+        </div>
+        <div className={styles.example}>
+          <div className={styles.exampleDemo}>
+            <ResizableBox className={classNames(styles.resizable, 'react-resizable')}
+              width={this.state.size.get('width')}
+              height={this.state.size.get('height')}
+              minConstraints={[80, 44]}
+              maxConstraints={[300, 200]}
+              onResize={(e, data) => {
+                this.setState({
+                  size: this.state.size.merge({
+                    width: data.size.width,
+                    height: data.size.height
+                  })
+                })
+              }}
+              onResizeStart={() => {
+                this.setState({
+                  size: this.state.size.set('resizing', true)
+                })
+              }}
+              onResizeStop={() => {
+                this.setState({
+                  size: this.state.size.set('resizing', false)
+                })
+              }}>
+              <Switch className={styles.resizableSwitch}
+                checked={this.state.size.get('flag')}
+                width={this.state.size.get('width') / 2}
+                height={this.state.size.get('height') / 2}
+                animated={!this.state.size.get('resizing')}
+                onChange={checked => {
+                  this.setState({
+                    size: this.state.size.set('flag', checked)
+                  })
+                }}/>
+            </ResizableBox>
+          </div>
+          <pre className={styles.exampleCode}>{`${'<'}Switch
+  width={number}
+  height={number}/>`}</pre>
+        </div>
       </div>
-      <div className={styles.example}>
-        <label className={styles.label}>
-          <Switch className={styles.switch}
-            checked/>
-          Checked
-        </label>
-      </div>
-      <div className={styles.example}>
-        <label className={styles.label}>
-          <Switch className={styles.switch}
-            checked={false}/>
-          Unchecked
-        </label>
-      </div>
-      <div className={styles.example}>
-        <label className={styles.label}>
-          <Switch className={styles.switch}
-            enabled={false}/>
-          Disabled
-        </label>
-      </div>
-      <div className={styles.example}>
-        <label className={styles.label}>
-          <Switch className={styles.switch}
-            buttonColor='#FFDC00'
-            checkedColor='#0074D9'
-            uncheckedColor='black'
-            checked={this.state.color.get('flag')}
-            onChange={checked => {
-              this.setState({
-                color: this.state.color.set('flag', checked)
-              })
-            }}/>
-          Custom Colors
-        </label>
+      <div className={styles.company}>
+        <span>A <a className={styles.companyLink} href='http://www.clari.com'>Clari</a> open source project</span>
       </div>
     </div>
   }
