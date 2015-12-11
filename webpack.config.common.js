@@ -1,3 +1,3 @@
 module.exports = {
-  library: 'react-draggable-switch'
+  library: 'react-ios-switch'
 }

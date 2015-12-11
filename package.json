@@ -1,11 +1,11 @@
 {
-  "name": "react-draggable-switch",
+  "name": "react-ios-switch",
   "version": "0.1.3",
   "files": [
     "index.js",
     "index.css"
   ],
-  "repository": "clariussystems/react-draggable-switch",
+  "repository": "clariussystems/react-ios-switch",
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.dev.js",

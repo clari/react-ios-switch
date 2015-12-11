@@ -1,10 +1,10 @@
-React Draggable Switch
+React iOS Switch
 ===
-[Switch component with a draggable button](http://clariussystems.github.io/react-draggable-switch)
+[Switch component with a draggable button](http://clariussystems.github.io/react-ios-switch)
 
 ```
-import 'react-draggable-switch/index.css'
-import Switch from 'react-draggable-switch'
+import 'react-ios-switch/index.css'
+import Switch from 'react-ios-switch'
 
 <Switch
   checked={true}
