@@ -8,7 +8,7 @@ import Switch from 'react-ios-switch'
 
 <Switch
   checked={true}
-  onChange={checked => ...)}/>
+  onChange={checked => ...}/>
 ```
 
 Local Development
