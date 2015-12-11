@@ -46,7 +46,7 @@ class App extends React.Component {
           React switch component with a draggable button
         </h2>
         <Switch className={styles.headerSwitch}
-          buttonColor='#e9e9e9'
+          buttonColor='#f7f7f7'
           checkedColor='#333'
           uncheckedColor='#333'
           checked={this.state.header.get('flag')}

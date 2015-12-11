@@ -75,7 +75,7 @@ body {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  margin-top: 40px;
+  margin-top: 30px;
   padding-left: 60px;
   padding-right: 60px;
 }
@@ -90,8 +90,8 @@ body {
 :local(.headerSwitch) {
   align-self: center;
   flex-shrink: 0;
-  margin-bottom: 40px;
-  margin-top: 40px;
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
 
 :local(.headerTitle) {
