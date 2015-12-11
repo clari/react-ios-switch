@@ -13,7 +13,7 @@ import Switch from 'react-draggable-switch'
   onChange={checked => ...)}/>
 ```
 
-> This is a [Clari](http://www.clari.com) open source project.
+This is a [Clari](http://www.clari.com) open source project.
 
 Local Development
 ---
