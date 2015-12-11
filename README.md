@@ -1,21 +1,19 @@
-React iOS Switch
+React Draggable Switch
 ===
-> This is a [Clari](http://www.clari.com) open source project.
+Draggable switch component based on Apple's UISwitch
 
-[Demo](http://clariussystems.github.io/react-ios-switch)
+[Demo](http://clariussystems.github.io/react-draggable-switch)
 
 ```
-import 'react-ios-switch/index.css'
-import Switch from 'react-ios-switch'
+import 'react-draggable-switch/index.css'
+import Switch from 'react-draggable-switch'
 
 <Switch
-  className='switch' // optional
-  checked={true} // optional
-  enabled={true} // optional
-  checkedColor='red' // optional
-  uncheckedColor='black' // optional
-  onChange={checked => ...)}/> // optional
+  checked={true}
+  onChange={checked => ...)}/>
 ```
+
+> This is a [Clari](http://www.clari.com) open source project.
 
 Local Development
 ---
@@ -27,8 +25,6 @@ npm start
 
 TODO
 ---
-- Resizeable + demo with react-resizeable
 - Configurable appearance
 - Configurable state labels + demo with icons
-- Consider rename to react-draggable-switch
-- Default checked
+- Unit tests

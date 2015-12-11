@@ -1,10 +1,6 @@
 :local(.button) {
-  background-color: white;
-  border-radius: 50%;
-  height: 18px;
-  left: 2px;
-  top: 2px;
-  width: 18px;
+  border-radius: 100%;
+  position: absolute;
 }
 
 :local(.checkbox) {
@@ -20,9 +16,7 @@
 }
 
 :local(.switch) {
-  border-radius: 10px;
-  height: 22px;
-  width: 40px;
+  position: relative;
 
   &:local(.switch--enabled) {
     cursor: pointer;
@@ -35,11 +29,13 @@
       }
     }
 
-    &:not(:local(.switch--dragging)) {
-      transition: background-color 0.1s ease-in-out;
+    &:local(.switch--animated) {
+      &:not(:local(.switch--dragging)) {
+        transition: background-color 0.1s ease-in-out;
 
-      :local(.button) {
-        transition: left 0.1s ease-in-out;
+        :local(.button) {
+          transition: left 0.1s ease-in-out;
+        }
       }
     }
   }

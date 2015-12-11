@@ -29,6 +29,13 @@ module.exports = {
           path.join(__dirname, 'lib')
         ],
         loaders: ['style', `css?localIdentName=${commonConfig.library}-[name]-[local]`, 'postcss', 'sass']
+      },
+      {
+        test: /\.css$/,
+        include: [
+          path.join(__dirname, 'node_modules/react-resizable/css/styles.css')
+        ],
+        loaders: ['style', 'css']
       }
     ]
   },

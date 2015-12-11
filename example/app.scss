@@ -2,16 +2,22 @@
   user-select: none;
 }
 
-:local(.container) {
-  left: 50px;
-  padding: 20px;
-  top: 50px;
+:local(.example) {
+  padding: 50px;
 }
 
 :local(.label) {
   align-items: center;
   display: flex;
   flex-shrink: 0;
+}
+
+:local(.resizable) {
+  align-items: center;
+  border: 1px dotted #ccc;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
 }
 
 :local(.switch) {

@@ -1,11 +1,11 @@
 {
-  "name": "react-ios-switch",
-  "version": "0.1.2",
+  "name": "react-draggable-switch",
+  "version": "0.1.3",
   "files": [
     "index.js",
     "index.css"
   ],
-  "repository": "clariussystems/react-ios-switch",
+  "repository": "clariussystems/react-draggable-switch",
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.dev.js",
@@ -29,8 +29,10 @@
     "eslint-plugin-react": "^3.11.3",
     "eslint-plugin-standard": "^1.3.1",
     "extract-text-webpack-plugin": "^0.9.1",
+    "immutable": "^3.7.5",
     "node-sass": "^3.4.2",
     "postcss-loader": "^0.8.0",
+    "react-resizable": "^1.0.1",
     "react-transform-hmr": "^1.0.1",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
@@ -40,7 +42,6 @@
   "dependencies": {
     "classnames": "^2.2.1",
     "d3-interpolate": "^0.2.0",
-    "jquery": "^2.1.4",
     "react": "^0.14.3",
     "react-dom": "^0.14.3"
   }
