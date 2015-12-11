@@ -1,6 +1,6 @@
 React iOS Switch
 ===
-[Switch component with a draggable button](http://clariussystems.github.io/react-ios-switch)
+[React switch component with a draggable button](http://clariussystems.github.io/react-ios-switch)
 
 ```javascript
 import 'react-ios-switch/index.css'
