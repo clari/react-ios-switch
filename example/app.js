@@ -17,14 +17,17 @@ class App extends React.Component {
   render () {
     return <div className={styles.app}>
       <div className={styles.container}
-        onClick={() => console.log('Clicked background')}>
-        <Switch className={styles.switch}
-          checked={this.state.flag}
-          onChange={value => {
-            this.setState({
-              flag: value
-            })
-          }}/>
+        onClick={() => console.log('Background clicked')}>
+        <label className={styles.label}>
+          <Switch className={styles.switch}
+            checked={this.state.flag}
+            onChange={checked => {
+              this.setState({
+                flag: checked
+              })
+            }}/>
+          Flag
+        </label>
       </div>
     </div>
   }

@@ -10,11 +10,11 @@ import Switch from 'react-ios-switch'
 
 <Switch
   className='switch' // optional
-  checked={true}
+  checked={true} // optional
   enabled={true} // optional
   checkedColor='red' // optional
   uncheckedColor='black' // optional
-  onChange={checked => ...}/>
+  onChange={checked => ...)}/> // optional
 ```
 
 Local Development
@@ -24,3 +24,11 @@ npm install
 npm start
 # Visit http://localhost:8080
 ```
+
+TODO
+---
+- Resizeable + demo with react-resizeable
+- Configurable appearance
+- Configurable state labels + demo with icons
+- Consider rename to react-draggable-switch
+- Default checked

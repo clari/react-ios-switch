@@ -8,5 +8,13 @@
   top: 50px;
 }
 
+:local(.label) {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+}
+
 :local(.switch) {
+  flex-shrink: 0;
+  margin-right: 10px;
 }

@@ -7,6 +7,10 @@
   width: 18px;
 }
 
+:local(.checkbox) {
+  display: none;
+}
+
 :local(.overlay) {
   bottom: 0;
   left: 0;
