@@ -1,0 +1,3 @@
+- Configurable appearance
+- Configurable state labels + demo with icons
+- Unit tests
