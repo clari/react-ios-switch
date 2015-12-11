@@ -1,12 +1,18 @@
 {
   "name": "react-ios-switch",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "files": [
     "index.js",
     "index.css"
   ],
   "repository": "clariussystems/react-ios-switch",
   "license": "MIT",
+  "keywords": [
+    "react",
+    "react-component",
+    "switch",
+    "toggle"
+  ],
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.dev.js",
     "clean": "rm index.js index.css",
