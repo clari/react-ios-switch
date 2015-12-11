@@ -1,8 +1,6 @@
 React Draggable Switch
 ===
-Draggable switch component based on Apple's UISwitch
-
-[Demo](http://clariussystems.github.io/react-draggable-switch)
+[Switch component with a draggable button](http://clariussystems.github.io/react-draggable-switch)
 
 ```
 import 'react-draggable-switch/index.css'
