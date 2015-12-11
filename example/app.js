@@ -78,7 +78,7 @@ class App extends React.Component {
               enabled={false}/>
           </div>
           <pre className={styles.exampleCode}>{`${'<'}Switch
-  enabled={bool}`}</pre>
+  enabled={bool}/>`}</pre>
         </div>
         <div className={styles.example}>
           <div className={styles.exampleDemo}>
