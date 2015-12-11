@@ -20,6 +20,9 @@ class App extends React.Component {
       }),
       label: Immutable.Map({
         flag: false
+      }),
+      color: Immutable.Map({
+        flag: false
       })
     }
   }
@@ -72,6 +75,42 @@ class App extends React.Component {
               })
             }}/>
           Label
+        </label>
+      </div>
+      <div className={styles.example}>
+        <label className={styles.label}>
+          <Switch className={styles.switch}
+            checked/>
+          Checked
+        </label>
+      </div>
+      <div className={styles.example}>
+        <label className={styles.label}>
+          <Switch className={styles.switch}
+            checked={false}/>
+          Unchecked
+        </label>
+      </div>
+      <div className={styles.example}>
+        <label className={styles.label}>
+          <Switch className={styles.switch}
+            enabled={false}/>
+          Disabled
+        </label>
+      </div>
+      <div className={styles.example}>
+        <label className={styles.label}>
+          <Switch className={styles.switch}
+            buttonColor='#FFDC00'
+            checkedColor='#0074D9'
+            uncheckedColor='black'
+            checked={this.state.color.get('flag')}
+            onChange={checked => {
+              this.setState({
+                color: this.state.color.set('flag', checked)
+              })
+            }}/>
+          Custom Colors
         </label>
       </div>
     </div>
