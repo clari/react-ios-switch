@@ -1,8 +1,12 @@
 {
+  "parser": "babel-eslint",
   "extends": "airbnb",
   "rules": {
     "comma-dangle": 0,
+    "no-trailing-spaces": 0,
     "react/jsx-closing-bracket-location": 0,
-    "react/wrap-multilines": 0
+    "react/prop-types": 0,
+    "react/wrap-multilines": 0,
+    "spaced-comment": 0
   }
 }
