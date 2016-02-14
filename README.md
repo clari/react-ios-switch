@@ -4,9 +4,8 @@ Features
 ---
 JavaScript
 - Hot module reloading
-- Babel stage 0
-- Babel polyfill
-- ESLint Airbnb
+- Babel
+- ESLint
 - Source maps
 
 CSS
@@ -20,6 +19,14 @@ npm install
 npm start
 # Visit http://localhost:8080
 ```
+
+Values to change
+---
+- README.md
+- package.json
+- index.html
+- webpack port
+- git origin
 
 References
 ---
