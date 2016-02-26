@@ -18,7 +18,7 @@ module.exports = {
         include: [
           path.join(__dirname, 'src')
         ],
-        loaders: ['babel']
+        loaders: ['babel', 'eslint']
       },
       {
         test: /\.scss$/,
