@@ -5,7 +5,7 @@ class Counter extends React.Component {
     super(props);
 
     this.state = {
-      counter: 0
+      counter: 0,
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -14,22 +14,25 @@ class Counter extends React.Component {
   handleClick() {
     const { counter } = this.state;
     this.setState({
-      counter: counter + 1
+      counter: counter + 1,
     });
   }
 
   render() {
     const { counter } = this.state;
-    return <div>
-      <button
-        onClick={this.handleClick}
-        type="button">
-        Click me!
-      </button>
+    return (
       <div>
-        {counter}
+        <button
+          onClick={this.handleClick}
+          type="button"
+        >
+          Click me!
+        </button>
+        <div>
+          {counter}
+        </div>
       </div>
-    </div>;
+    );
   }
 }
 
