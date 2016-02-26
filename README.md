@@ -20,14 +20,6 @@ npm start
 # Visit http://localhost:8080
 ```
 
-Values to change
----
-- README.md
-- package.json
-- index.html
-- webpack port
-- git origin
-
 References
 ---
 - [React Transform Boilerplate](https://github.com/gaearon/react-transform-boilerplate)
