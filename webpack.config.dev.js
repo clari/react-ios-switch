@@ -1,3 +1,4 @@
+var autoprefixer = require('autoprefixer');
 var common = require('./webpack.config.common');
 var webpack = require('webpack');
 
@@ -10,7 +11,16 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/build/'
   },
-  module: common.module,
+  module: {
+    loaders: [
+      common.js,
+      {
+        test: common.css.test,
+        include: common.css.include,
+        loaders: ['style', common.css.loader, 'postcss', 'sass']
+      }
+    ]
+  },
   devtool: 'eval',
   plugins: [
     new webpack.HotModuleReplacementPlugin()
@@ -21,5 +31,5 @@ module.exports = {
     inline: true,
     historyApiFallback: true
   },
-  postcss: common.postcss
+  postcss: [autoprefixer]
 };

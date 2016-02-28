@@ -1,4 +1,5 @@
 var common = require('./webpack.config.common');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack');
 
 module.exports = {
@@ -8,5 +9,17 @@ module.exports = {
     libraryTarget: 'umd',
     path: 'build'
   },
-  module: common.module
+  module: {
+    loaders: [
+      common.js,
+      {
+        test: common.css.test,
+        include: common.css.include,
+        loader: ExtractTextPlugin.extract('style', [common.css.loader, 'postcss', 'sass'].join('!'))
+      }
+    ]
+  },
+  plugins: [
+    new ExtractTextPlugin('bundle.css')
+  ]
 };

@@ -8,6 +8,23 @@ Features
 - Spring animation with [dynamics.js](https://github.com/michaelvillar/dynamics.js)
 - Contains a hidden input for interaction with labels
 
+Usage
+---
+```
+import 'react-ios-switch/build/bundle.css';
+import Switch from 'react-ios-switch';
+
+<Switch
+  checked={<bool>}
+  disabled={<bool>}
+  handleColor={<color>}
+  offColor={<color>}
+  onChange={checked => ...}
+  onColor={<color>}
+  pendingOffColor={<color>}
+/>
+```
+
 Setup
 ---
 ```
