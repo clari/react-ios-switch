@@ -17,7 +17,7 @@ module.exports = {
         include: [
           path.join(__dirname, 'src'),
         ],
-        loaders: ['style', 'css', 'postcss', 'sass']
+        loaders: ['style', 'css?localIdentName=react-ios-switch-[name]-[local]', 'postcss', 'sass']
       }
     ]
   },
