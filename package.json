@@ -1,16 +1,28 @@
 {
-  "name": "react-sass-boilerplate",
-  "version": "0.1.0",
-  "private": true,
+  "name": "react-ios-switch",
+  "version": "0.1.5",
   "scripts": {
-    "start": "webpack-dev-server"
+    "build": "webpack --config ./webpack.config.release.js",
+    "prepublish": "npm run build",
+    "start": "webpack-dev-server --config ./webpack.config.dev.js"
   },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/clariussystems/react-ios-switch"
+  },
+  "main": "build/bundle.js",
+  "files": [
+    "src/Switch.js",
+    "src/Switch.scss"
+  ],
   "devDependencies": {
     "autoprefixer": "^6.3.0",
     "babel-core": "^6.5.0",
     "babel-eslint": "^5.0.0",
     "babel-loader": "^6.2.0",
     "babel-plugin-react-transform": "^2.0.0",
+    "babel-polyfill": "^6.5.0",
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
@@ -22,6 +34,8 @@
     "eslint-plugin-react": "^3.16.0",
     "node-sass": "^3.4.0",
     "postcss-loader": "^0.8.0",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0",
     "react-transform-hmr": "^1.0.0",
     "sass-loader": "^3.1.0",
     "style-loader": "^0.13.0",
@@ -29,7 +43,11 @@
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
-    "babel-polyfill": "^6.5.0",
+    "classnames": "^2.2.0",
+    "d3-interpolate": "^0.6.0",
+    "dynamics.js": "0.0.9"
+  },
+  "peerDependencies": {
     "react": "^0.14.0",
     "react-dom": "^0.14.0"
   }
