@@ -2,7 +2,6 @@
 // Distracting animation on the green side. The area to the left of the handle should always be
 // hidden.
 // Edge case when right click inspect element on switch. The mouseup event never fires.
-// Externalize checked as prop. Handle checked received prop.
 
 import dynamics from 'dynamics.js';
 import { interpolate } from 'd3-interpolate';
@@ -26,7 +25,6 @@ class Switch extends React.Component {
     const offset = 0;
 
     this.state = {
-      checked: false,
       currentClientX: 0,
       dragging: false,
       offset,
@@ -44,6 +42,12 @@ class Switch extends React.Component {
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
     this.handleMouseUp = this.handleMouseUp.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.checked !== nextProps.checked) {
+      this.startAnimation(nextProps);
+    }
   }
 
   componentWillUnmount() {
@@ -70,11 +74,9 @@ class Switch extends React.Component {
   }
 
   handleClick(e) {
-    const { checked } = this.state;
+    const { checked, onChange } = this.props;
     e.preventDefault();
-    this.setState({
-      checked: !checked,
-    }, () => this.startAnimation());
+    onChange(!checked);
   }
 
   handleHandleClick(e) {
@@ -102,16 +104,16 @@ class Switch extends React.Component {
   }
 
   handleMouseUp() {
-    const { maxOffset } = this.props;
-    const { checked, currentClientX, offset, startClientX } = this.state;
+    const { checked, maxOffset, onChange } = this.props;
+    const { currentClientX, offset, startClientX } = this.state;
     this.removeListeners();
 
     const deltaX = currentClientX - startClientX;
     if (!deltaX) {
       this.setState({
-        checked: !checked,
         dragging: false,
-      }, () => this.startAnimation());
+      });
+      onChange(!checked);
       return;
     }
 
@@ -119,10 +121,10 @@ class Switch extends React.Component {
     const newChecked = newOffset > maxOffset / 2;
 
     this.setState({
-      checked: newChecked,
       dragging: false,
       offset: newOffset,
-    }, () => this.startAnimation());
+    });
+    onChange(newChecked);
   }
 
   removeListeners() {
@@ -130,9 +132,9 @@ class Switch extends React.Component {
     document.removeEventListener('mouseup', this.handleMouseUp);
   }
 
-  startAnimation() {
-    const { maxOffset } = this.props;
-    const { checked, offset } = this.state;
+  startAnimation(props) {
+    const { checked, maxOffset } = props;
+    const { offset } = this.state;
     const desiredOffset = checked ? maxOffset : 0;
     this.animatedProperties.offset = offset;
     dynamics.animate(this.animatedProperties, {
@@ -146,8 +148,17 @@ class Switch extends React.Component {
   }
 
   render() {
-    const { disabled, handleColor, maxOffset, offColor, onColor, pendingOffColor } = this.props;
-    const { checked, currentClientX, dragging, offset, startClientX } = this.state;
+    const {
+      checked,
+      disabled,
+      handleColor,
+      maxOffset,
+      offColor,
+      onColor,
+      pendingOffColor,
+    } = this.props;
+
+    const { currentClientX, dragging, offset, startClientX } = this.state;
 
     const deltaX = dragging ? currentClientX - startClientX : 0;
     const clampedOffset = Math.min(maxOffset, Math.max(0, offset + deltaX));
