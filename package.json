@@ -14,7 +14,7 @@
   "main": "build/bundle.js",
   "files": [
     "build/bundle.js",
-    "build/bundle.scss",
+    "build/bundle.css",
     "src/Switch.js",
     "src/Switch.scss"
   ],
