@@ -27,8 +27,8 @@
   display: flex;
   flex-shrink: 0;
   height: $spacing-cellHeight;
-  padding-left: $spacing-small;
-  padding-right: $spacing-small;
+  padding-left: $spacing-medium;
+  padding-right: $spacing-medium;
 }
 
 :local(.actionBarTitle) {
@@ -115,8 +115,8 @@
   display: flex;
   flex-shrink: 0;
   height: $spacing-statusBarHeight;
-  padding-left: $spacing-small;
-  padding-right: $spacing-small;
+  padding-left: $spacing-medium;
+  padding-right: $spacing-medium;
 }
 
 :local(.statusBarBattery) {
