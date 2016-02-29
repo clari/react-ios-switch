@@ -44,5 +44,4 @@ References
 
 TODO
 ---
-- I think the click event handlers currently require an outer label.
 - Test published release candidate

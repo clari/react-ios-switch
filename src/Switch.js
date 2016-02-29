@@ -82,15 +82,27 @@ class Switch extends React.Component {
 
   handleClick(e) {
     const { checked, onChange } = this.props;
+
+    // Prevent the outer label from receiving the event.
     e.preventDefault();
+
     onChange(!checked);
   }
 
+  // If a click event occurs on the handle, drop the event. The mouseup handler will decide
+  // whether to consider the mouseup event a "click to toggle" interaction or a "drag end"
+  // interaction.
   handleHandleClick(e) {
+    // Prevent the outer label from receiving the event.
     e.preventDefault();
+
+    // Prevent the switch click handler from receiving the event.
     e.stopPropagation();
   }
 
+  // If there is an outer label, and it is clicked, the input receives a click event and a change
+  // event. Because we use the click event to set the checked state (the click event propagates to
+  // the switch), we can ignore the change event.
   handleInputChange() {
   }
 
