@@ -1,5 +1,7 @@
 React iOS Switch
 ===
+[Demo](http://clariussystems.github.io/react-ios-switch)
+
 Features
 ---
 - Click to toggle
