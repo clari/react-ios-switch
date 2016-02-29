@@ -1,6 +1,7 @@
 {
   "name": "react-ios-switch",
   "version": "0.1.6",
+  "author": "Matthew King <mking@clari.com>",
   "scripts": {
     "build": "webpack --config ./webpack.config.release.js",
     "gh-pages": "webpack --config ./webpack.config.gh-pages.js",
