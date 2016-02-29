@@ -1,4 +1,11 @@
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var path = require('path');
+
+const cssTest = /\.scss$/;
+const cssInclude = [
+  path.join(__dirname, 'src'),
+];
+const cssLoader = 'css?localIdentName=react-ios-switch-[name]-[local]';
 
 module.exports = {
   js: {
@@ -8,11 +15,14 @@ module.exports = {
     ],
     loaders: ['babel', 'eslint']
   },
-  css: {
-    test: /\.scss$/,
-    include: [
-      path.join(__dirname, 'src'),
-    ],
-    loader: 'css?localIdentName=react-ios-switch-[name]-[local]'
+  devCSS: {
+    test: cssTest,
+    include: cssInclude,
+    loaders: ['style', cssLoader, 'postcss', 'sass']
   },
+  productionCSS: {
+    test: cssTest,
+    include: cssInclude,
+    loader: ExtractTextPlugin.extract('style', [cssLoader, 'postcss', 'sass'].join('!'))
+  }
 };

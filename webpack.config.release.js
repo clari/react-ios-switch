@@ -12,11 +12,7 @@ module.exports = {
   module: {
     loaders: [
       common.js,
-      {
-        test: common.css.test,
-        include: common.css.include,
-        loader: ExtractTextPlugin.extract('style', [common.css.loader, 'postcss', 'sass'].join('!'))
-      }
+      common.productionCSS
     ]
   },
   plugins: [

@@ -3,6 +3,7 @@
   "version": "0.1.5",
   "scripts": {
     "build": "webpack --config ./webpack.config.release.js",
+    "gh-pages": "webpack --config ./webpack.config.gh-pages.js",
     "prepublish": "npm run build",
     "start": "webpack-dev-server --config ./webpack.config.dev.js"
   },

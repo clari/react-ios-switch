@@ -14,11 +14,7 @@ module.exports = {
   module: {
     loaders: [
       common.js,
-      {
-        test: common.css.test,
-        include: common.css.include,
-        loaders: ['style', common.css.loader, 'postcss', 'sass']
-      }
+      common.devCSS
     ]
   },
   devtool: 'eval',
