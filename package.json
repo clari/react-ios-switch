@@ -8,6 +8,12 @@
     "start": "webpack-dev-server --config ./webpack.config.dev.js",
     "postversion": "git push && git push --tags"
   },
+  "keywords": [
+    "react",
+    "react-component",
+    "switch",
+    "toggle"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
