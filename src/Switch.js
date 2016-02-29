@@ -1,8 +1,3 @@
-// TODO
-// Distracting animation on the green side. The area to the left of the handle should always be
-// hidden.
-// Edge case when right click inspect element on switch. The mouseup event never fires.
-
 import dynamics from 'dynamics.js';
 import { interpolate } from 'd3-interpolate';
 import classNames from 'classnames';
@@ -162,10 +157,11 @@ class Switch extends React.Component {
 
     const deltaX = dragging ? currentClientX - startClientX : 0;
     const clampedOffset = Math.min(maxOffset, Math.max(0, offset + deltaX));
-    const transform = `translateX(${clampedOffset}px)`;
+    const handleTransform = `translateX(${clampedOffset}px)`;
 
     const t = clampedOffset / maxOffset;
     const color = interpolate(pendingOffColor, onColor)(t);
+    const offStateTransform = `scale(${1 - t})`;
 
     return (
       <div
@@ -184,6 +180,9 @@ class Switch extends React.Component {
           className={styles.offState}
           style={{
             backgroundColor: offColor,
+            msTransform: offStateTransform,
+            transform: offStateTransform,
+            WebkitTransform: offStateTransform,
           }}
         />
         <div
@@ -192,9 +191,9 @@ class Switch extends React.Component {
           onMouseDown={!disabled && this.handleMouseDown}
           style={{
             backgroundColor: handleColor,
-            msTransform: transform,
-            transform,
-            WebkitTransform: transform,
+            msTransform: handleTransform,
+            transform: handleTransform,
+            WebkitTransform: handleTransform,
           }}
         />
         <input
