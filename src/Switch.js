@@ -29,8 +29,9 @@ class Switch extends React.Component {
       startClientX: 0,
     };
 
-    // At rest, the animated properties offset should equal the state offset.
-    // During animation, they may be different.
+    // The state offset should always eventually match the animated properties offset.
+    // The component should interact with the state offset, while dynamics should interact with
+    // the animated properties offset.
     this.animatedProperties = {
       offset,
     };
