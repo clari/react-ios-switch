@@ -2,12 +2,10 @@
   "name": "react-ios-switch",
   "version": "0.1.6",
   "author": "Matthew King <mking@clari.com>",
-  "scripts": {
-    "build": "webpack --config ./webpack.config.release.js",
-    "gh-pages": "webpack --config ./webpack.config.gh-pages.js",
-    "prepublish": "NODE_ENV=production npm run build",
-    "start": "webpack-dev-server --config ./webpack.config.dev.js",
-    "postversion": "git push && git push --tags"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/clariussystems/react-ios-switch"
   },
   "keywords": [
     "react",
@@ -15,10 +13,12 @@
     "switch",
     "toggle"
   ],
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/clariussystems/react-ios-switch"
+  "scripts": {
+    "build": "webpack --config ./webpack.config.release.js",
+    "gh-pages": "webpack --config ./webpack.config.gh-pages.js",
+    "prepublish": "NODE_ENV=production npm run build",
+    "start": "webpack-dev-server --config ./webpack.config.dev.js",
+    "postversion": "git push && git push --tags"
   },
   "main": "build/bundle.js",
   "files": [
