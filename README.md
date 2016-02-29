@@ -41,7 +41,3 @@ References
 - [CSS UISwitch](https://github.com/fnky/css3-uiswitch)
 - [react-draggable](https://github.com/mzabriskie/react-draggable)
 - [Bootstrap Switch](http://www.bootstrap-switch.org)
-
-TODO
----
-- Test published release candidate
