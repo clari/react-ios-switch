@@ -5,7 +5,8 @@
     "build": "webpack --config ./webpack.config.release.js",
     "gh-pages": "webpack --config ./webpack.config.gh-pages.js",
     "prepublish": "NODE_ENV=production npm run build",
-    "start": "webpack-dev-server --config ./webpack.config.dev.js"
+    "start": "webpack-dev-server --config ./webpack.config.dev.js",
+    "postversion": "git push && git push --tags"
   },
   "license": "MIT",
   "repository": {
