@@ -1,6 +1,6 @@
 {
   "name": "react-ios-switch",
-  "version": "0.1.5",
+  "version": "0.1.5-rc1",
   "scripts": {
     "build": "webpack --config ./webpack.config.release.js",
     "gh-pages": "webpack --config ./webpack.config.gh-pages.js",
