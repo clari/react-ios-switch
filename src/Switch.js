@@ -41,9 +41,7 @@ class Switch extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.checked !== nextProps.checked) {
-      this.startAnimation(nextProps);
-    }
+    this.startAnimation(nextProps);
   }
 
   componentWillUnmount() {
@@ -91,6 +89,10 @@ class Switch extends React.Component {
   handleMouseDown(e) {
     const { dragging } = this.state;
     invariant(!dragging, 'Mouse down handler called inside of a drag');
+
+    if (e.button !== 0) {
+      return;
+    }
 
     this.cancelAnimation();
     this.setState({
