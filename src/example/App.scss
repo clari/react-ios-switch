@@ -1,0 +1,161 @@
+@import './variables';
+
+:local(.app) {
+  align-items: center;
+  background-color: $color-gray;
+  bottom: 0;
+  display: flex;
+  font-family: 'Helvetica Neue', sans-serif;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+:local(.action) {
+  align-items: center;
+  color: $color-blue;
+  display: flex;
+  flex-basis: 0;
+  flex-grow: 1;
+  font-size: $fontSize-medium;
+  min-width: 1px;
+}
+
+:local(.actionBar) {
+  display: flex;
+  flex-shrink: 0;
+  height: $spacing-cellHeight;
+  padding-left: $spacing-small;
+  padding-right: $spacing-small;
+}
+
+:local(.actionBarTitle) {
+  align-items: center;
+  display: flex;
+  flex-basis: 0;
+  flex-grow: 1;
+  font-size: $fontSize-medium;
+  min-width: 1px;
+  font-weight: 500;
+  justify-content: center;
+}
+
+:local(.actionText) {
+  margin-left: $spacing-small;
+}
+
+:local(.body) {
+  background-color: $color-body;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 1px;
+}
+
+:local(.header) {
+  background-color: $color-header;
+  border-bottom: 1px solid $color-border;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+:local(.phone) {
+  background-color: white;
+  box-shadow: 0 10px 20px 0 rgba(black, 0.5);
+  display: flex;
+  flex-direction: column;
+  height: 667px;
+  width: 375px;
+}
+
+:local(.settingCell) {
+  flex-shrink: 0;
+}
+
+:local(.settingCells) {
+  background-color: white;
+  border-bottom: 1px solid $color-border;
+  border-top: 1px solid $color-border;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  padding-left: $spacing-large;
+}
+
+:local(.settingFooter) {
+  color: $color-blue;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  font-size: $fontSize-small;
+  padding-bottom: $spacing-medium;
+  padding-left: $spacing-large;
+  padding-right: $spacing-large;
+  padding-top: $spacing-medium;
+}
+
+:local(.settingHeader) {
+  color: $color-gray;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  font-size: $fontSize-small;
+  justify-content: flex-end;
+  padding-bottom: $spacing-medium;
+  padding-left: $spacing-large;
+  padding-right: $spacing-large;
+  padding-top: 30px;
+  text-transform: uppercase;
+}
+
+:local(.statusBar) {
+  display: flex;
+  flex-shrink: 0;
+  height: $spacing-statusBarHeight;
+  padding-left: $spacing-small;
+  padding-right: $spacing-small;
+}
+
+:local(.statusBarBattery) {
+  align-items: center;
+  display: flex;
+  flex-basis: 0;
+  flex-grow: 1;
+  justify-content: flex-end;
+  min-width: 1px;
+}
+
+:local(.statusBarBatteryIcon) {
+  font-size: $fontSize-small;
+}
+
+:local(.statusBarConnection) {
+  align-items: center;
+  display: flex;
+  flex-basis: 0;
+  flex-grow: 1;
+  min-width: 1px;
+}
+
+:local(.statusBarConnectionIcon) {
+  font-size: $fontSize-small;
+  margin-left: $spacing-small;
+}
+
+:local(.statusBarConnectionType) {
+  font-size: $fontSize-small;
+}
+
+:local(.statusBarTime) {
+  align-items: center;
+  display: flex;
+  flex-basis: 0;
+  flex-grow: 1;
+  font-size: $fontSize-small;
+  font-weight: 500;
+  justify-content: center;
+  min-width: 1px;
+}

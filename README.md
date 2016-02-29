@@ -5,7 +5,7 @@ Features
 - Click to toggle
 - Draggable handle
 - Customizable colors
-- Spring animation with [dynamics.js](https://github.com/michaelvillar/dynamics.js).
+- Spring animation with [dynamics.js](https://github.com/michaelvillar/dynamics.js)
 - Hidden input for interaction with labels
 
 Usage
