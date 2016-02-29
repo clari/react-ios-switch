@@ -38,3 +38,13 @@ References
 - [UISwitch](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UISwitch_Class)
 - [CSS UISwitch](https://github.com/fnky/css3-uiswitch)
 - [react-draggable](https://github.com/mzabriskie/react-draggable)
+- [Bootstrap Switch](http://www.bootstrap-switch.org)
+
+TODO
+---
+- Demo (iPhone)
+- Right click issue (does not occur in react-draggable)
+
+Future
+---
+- Custom themes

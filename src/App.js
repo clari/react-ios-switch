@@ -6,7 +6,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      checked: false,
+      checked: true,
     };
 
     this.handleChange = this.handleChange.bind(this);

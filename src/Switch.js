@@ -1,6 +1,7 @@
 import dynamics from 'dynamics.js';
 import { interpolate } from 'd3-interpolate';
 import classNames from 'classnames';
+import invariant from 'invariant';
 import React from 'react';
 import styles from './Switch.scss';
 
@@ -17,7 +18,7 @@ class Switch extends React.Component {
   constructor(props) {
     super(props);
 
-    const offset = 0;
+    const offset = this.getCheckedStateOffset(props);
 
     this.state = {
       currentClientX: 0,
@@ -53,6 +54,11 @@ class Switch extends React.Component {
     }
   }
 
+  getCheckedStateOffset(props) {
+    const { checked, maxOffset } = props;
+    return checked ? maxOffset : 0;
+  }
+
   addListeners() {
     document.addEventListener('mousemove', this.handleMouseMove);
     document.addEventListener('mouseup', this.handleMouseUp);
@@ -83,6 +89,9 @@ class Switch extends React.Component {
   }
 
   handleMouseDown(e) {
+    const { dragging } = this.state;
+    invariant(!dragging, 'Mouse down handler called inside of a drag');
+
     this.cancelAnimation();
     this.setState({
       currentClientX: e.clientX,
@@ -93,6 +102,9 @@ class Switch extends React.Component {
   }
 
   handleMouseMove(e) {
+    const { dragging } = this.state;
+    invariant(dragging, 'Mouse move handler called outside of a drag');
+
     this.setState({
       currentClientX: e.clientX,
     });
@@ -100,7 +112,9 @@ class Switch extends React.Component {
 
   handleMouseUp() {
     const { checked, maxOffset, onChange } = this.props;
-    const { currentClientX, offset, startClientX } = this.state;
+    const { currentClientX, dragging, offset, startClientX } = this.state;
+
+    invariant(dragging, 'Mouse up handler called outside of a drag');
     this.removeListeners();
 
     const deltaX = currentClientX - startClientX;
@@ -128,12 +142,10 @@ class Switch extends React.Component {
   }
 
   startAnimation(props) {
-    const { checked, maxOffset } = props;
     const { offset } = this.state;
-    const desiredOffset = checked ? maxOffset : 0;
     this.animatedProperties.offset = offset;
     dynamics.animate(this.animatedProperties, {
-      offset: desiredOffset,
+      offset: this.getCheckedStateOffset(props),
     }, {
       change: this.handleAnimationChange,
       frequency: 200,
