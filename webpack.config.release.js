@@ -1,3 +1,4 @@
+var autoprefixer = require('autoprefixer');
 var common = require('./webpack.config.common');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack');
@@ -17,5 +18,6 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin('bundle.css')
-  ]
+  ],
+  postcss: [autoprefixer]
 };
