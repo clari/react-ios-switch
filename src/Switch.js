@@ -20,6 +20,8 @@ class Switch extends React.Component {
 
     const offset = this.getCheckedStateOffset(props);
 
+    // During a drag, we track the starting mouse position and the current mouse position.
+    // This allows us to avoid accumulating deltas, and thus avoid accumulating errors.
     this.state = {
       currentClientX: 0,
       dragging: false,
@@ -27,6 +29,8 @@ class Switch extends React.Component {
       startClientX: 0,
     };
 
+    // At rest, the animated properties offset should equal the state offset.
+    // During animation, they may be different.
     this.animatedProperties = {
       offset,
     };
@@ -41,6 +45,8 @@ class Switch extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    // Assume the props change occurred because the checked state changed. Animate back to the
+    // rest state.
     this.startAnimation(nextProps);
   }
 
@@ -52,6 +58,7 @@ class Switch extends React.Component {
     }
   }
 
+  // We should be able to compute the offset from the checked state.
   getCheckedStateOffset(props) {
     const { checked, maxOffset } = props;
     return checked ? maxOffset : 0;
@@ -90,6 +97,7 @@ class Switch extends React.Component {
     const { dragging } = this.state;
     invariant(!dragging, 'Mouse down handler called inside of a drag');
 
+    // Left click only
     if (e.button !== 0) {
       return;
     }
@@ -100,6 +108,10 @@ class Switch extends React.Component {
       dragging: true,
       startClientX: e.clientX,
     });
+
+    // While the drag is ongoing, we set document-level event handlers to capture mousemove and
+    // mouseup. This way, the drag doesn't end if the user mouses off the handle. These event
+    // handlers are expensive and global, so we need to make sure we remove them when the drag ends.
     this.addListeners();
   }
 
@@ -119,6 +131,7 @@ class Switch extends React.Component {
     invariant(dragging, 'Mouse up handler called outside of a drag');
     this.removeListeners();
 
+    // If the mouse hasn't changed position by the end of a drag, treat it as a click on the handle.
     const deltaX = currentClientX - startClientX;
     if (!deltaX) {
       this.setState({
@@ -128,6 +141,7 @@ class Switch extends React.Component {
       return;
     }
 
+    // The checked state is a function of the mouse offset.
     const newOffset = offset + deltaX;
     const newChecked = newOffset > maxOffset / 2;
 
@@ -146,6 +160,9 @@ class Switch extends React.Component {
   startAnimation(props) {
     const { offset } = this.state;
     this.animatedProperties.offset = offset;
+
+    // Note that spring animation always results in a bounce at the end. Choose parameters to
+    // minimize this bounce.
     dynamics.animate(this.animatedProperties, {
       offset: this.getCheckedStateOffset(props),
     }, {
@@ -169,20 +186,24 @@ class Switch extends React.Component {
 
     const { currentClientX, dragging, offset, startClientX } = this.state;
 
+    // The handle position is a function of the mouse offset.
     const deltaX = dragging ? currentClientX - startClientX : 0;
     const clampedOffset = Math.min(maxOffset, Math.max(0, offset + deltaX));
     const handleTransform = `translateX(${clampedOffset}px)`;
 
+    // The interpolation parameter is a function of the mouse offset.
     const t = clampedOffset / maxOffset;
+
+    // The switch color is a function of the interpolation parameter.
     const color = interpolate(pendingOffColor, onColor)(t);
+
+    // The off state size is a function of the interpolation parameter.
     const offStateTransform = `scale(${1 - t})`;
 
     return (
       <div
         className={classNames(
           styles.switch,
-          checked && styles['switch--checked'],
-          dragging && styles['switch--dragging'],
           disabled && styles['switch--disabled']
         )}
         onClick={this.handleClick}
