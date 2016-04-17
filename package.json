@@ -47,8 +47,8 @@
     "immutable": "^3.7.6",
     "node-sass": "^3.4.0",
     "postcss-loader": "^0.8.0",
-    "react": "^0.14.0",
-    "react-dom": "^0.14.0",
+    "react": "^0.14.0 || ^15.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0",
     "react-transform-hmr": "^1.0.0",
     "sass-loader": "^3.1.0",
     "style-loader": "^0.13.0",
@@ -62,7 +62,7 @@
     "invariant": "^2.2.0"
   },
   "peerDependencies": {
-    "react": "^0.14.0",
-    "react-dom": "^0.14.0"
+    "react": "^0.14.0 || ^15.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0"
   }
 }
