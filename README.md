@@ -12,7 +12,7 @@ Features
 
 Usage
 ---
-```
+```javascript
 import 'react-ios-switch/build/bundle.css';
 import Switch from 'react-ios-switch';
 
