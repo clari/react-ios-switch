@@ -189,6 +189,7 @@ class Switch extends React.Component {
   render() {
     const {
       checked,
+      className,
       disabled,
       handleColor,
       maxOffset,
@@ -217,7 +218,8 @@ class Switch extends React.Component {
       <div
         className={classNames(
           styles.switch,
-          disabled && styles['switch--disabled']
+          disabled && styles['switch--disabled'],
+          className
         )}
         onClick={this.handleClick}
         style={{

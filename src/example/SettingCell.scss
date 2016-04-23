@@ -28,3 +28,7 @@
     border-top: 1px solid $color-border;
   }
 }
+
+:local(.switch) {
+  display: block;
+}

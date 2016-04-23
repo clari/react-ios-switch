@@ -35,6 +35,7 @@ class SettingCell extends React.Component {
           <div className={styles.switchValue}>
             <Switch
               checked={setting.get('value')}
+              className={styles.switch}
               onChange={this.handleChange}
             />
           </div>
