@@ -1,12 +1,12 @@
 {
   "name": "react-ios-switch",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "React switch component",
   "author": "Matthew King <mking@clari.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/clariussystems/react-ios-switch"
+    "url": "https://github.com/clari/react-ios-switch"
   },
   "keywords": [
     "react",
