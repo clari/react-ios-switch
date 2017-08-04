@@ -221,7 +221,7 @@ class Switch extends React.Component {
           disabled && styles['switch--disabled'],
           className
         )}
-        onClick={this.handleClick}
+        onClick={!disabled && this.handleClick}
         style={{
           backgroundColor: color,
         }}
