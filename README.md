@@ -4,22 +4,19 @@ React iOS Switch
 
 [Demo](https://clari.github.io/react-ios-switch)
 
-[CodePen](https://codepen.io/mking-clari/pen/dzKxdb)
-
-Features
----
-- Click to toggle
-- Draggable handle
-- Customizable colors
-- Animation
-- Hidden input for interaction with labels
-
 Usage
 ---
 ```javascript
 import 'react-ios-switch/build/bundle.css';
 import Switch from 'react-ios-switch';
 
+// Simple version
+<Switch
+  checked={<bool>}
+  onChange={checked => ...}
+/>
+
+// All available props
 <Switch
   checked={<bool>}
   disabled={<bool>}
@@ -30,6 +27,8 @@ import Switch from 'react-ios-switch';
   pendingOffColor={<color>}
 />
 ```
+
+[Try the code in CodePen.](https://codepen.io/mking-clari/pen/dzKxdb)
 
 Setup
 ---
@@ -42,6 +41,6 @@ yarn start
 References
 ---
 - [UISwitch](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UISwitch_Class)
-- [CSS UISwitch](https://github.com/fnky/css3-uiswitch)
+- [CSS Switch](https://github.com/fnky/css3-uiswitch)
+- [Bootstrap Switch](http://bootstrapswitch.com)
 - [react-draggable](https://github.com/mzabriskie/react-draggable)
-- [Bootstrap Switch](http://www.bootstrap-switch.org)
