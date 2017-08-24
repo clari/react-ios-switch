@@ -2,7 +2,7 @@ React iOS Switch
 ===
 <img src="https://img.shields.io/npm/dm/react-ios-switch.svg">
 
-[Example 1 - settings screen](https://clari.github.io/react-ios-switch)
+[Example 1 - Settings](https://clari.github.io/react-ios-switch)
 
 [Example 2 - CodePen](https://codepen.io/mking-clari/pen/dzKxdb)
 
