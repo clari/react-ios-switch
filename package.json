@@ -21,9 +21,9 @@
   "scripts": {
     "build": "webpack --config ./webpack.config.release.js",
     "gh-pages": "webpack --config ./webpack.config.gh-pages.js",
+    "postversion": "git push && git push --tags",
     "prepublish": "NODE_ENV=production npm run build",
-    "start": "webpack-dev-server --config ./webpack.config.dev.js",
-    "postversion": "git push && git push --tags"
+    "start": "webpack-dev-server --config ./webpack.config.dev.js"
   },
   "dependencies": {
     "classnames": "^2.2.5",
