@@ -1,6 +1,8 @@
 React iOS Switch
 ===
-[Demo](http://clari.github.io/react-ios-switch)
+<img src="https://img.shields.io/npm/dm/react-ios-switch.svg">
+
+[Demo](https://clari.github.io/react-ios-switch)
 
 Features
 ---
