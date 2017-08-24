@@ -4,6 +4,8 @@ React iOS Switch
 
 [Demo](https://clari.github.io/react-ios-switch)
 
+[CodePen](https://codepen.io/mking-clari/pen/dzKxdb)
+
 Features
 ---
 - Click to toggle
