@@ -7,6 +7,7 @@ module.exports = {
   entry: './src/libraryEntrypoint',
   output: {
     filename: 'bundle.js',
+    library: 'Switch',
     libraryTarget: 'umd',
     path: 'build'
   },

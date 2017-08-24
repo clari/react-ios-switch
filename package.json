@@ -1,6 +1,6 @@
 {
   "name": "react-ios-switch",
-  "version": "0.1.11",
+  "version": "0.1.12-alpha.1",
   "description": "React switch component",
   "author": "Matthew King <mking@clari.com>",
   "license": "MIT",
