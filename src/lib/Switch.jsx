@@ -2,7 +2,7 @@ import { pointer, trackOffset, transform } from 'popmotion';
 import React from 'react';
 
 import normalizeColor from './normalizeColor';
-import prefixer from './prefixer';
+import prefixStyle from './prefixStyle';
 
 export default class Switch extends React.Component {
   static defaultProps = {
@@ -199,7 +199,7 @@ export default class Switch extends React.Component {
         className={className}
         onClick={this.handleClick}
         ref={this.setRef}
-        style={prefixer.prefix({
+        style={prefixStyle({
           backgroundColor: color,
           border: `1px solid ${borderColor}`,
           borderRadius: this.getHeight() / 2,
@@ -216,12 +216,12 @@ export default class Switch extends React.Component {
         <span 
           onClick={this.handleThumbClick}
           onMouseDown={this.handleMouseDown}
-          style={prefixer.prefix({
+          style={prefixStyle({
             backgroundColor: this.getThumbColor(),
             borderRadius: '100%',
             boxShadow: '0 1px 3px rgba(0, 0, 0, 0.4)',
             cursor: this.getThumbCursor(),
-            display: ['inline-block', '-webkit-inline-block'],
+            display: 'inline-block',
             height: this.getThumbLength(),
             left: this.getOffset(),
             position: 'absolute',

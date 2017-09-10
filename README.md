@@ -26,8 +26,8 @@ import Switch from 'react-ios-switch';
 <Switch
   checked={false}
   disabled={false}
-  handleColor="#fff"
-  offColor="#fff"
+  handleColor="white"
+  offColor="white"
   onChange={() => {}}
   onColor="#4cd964"
   pendingOffColor="#dfdfdf"
