@@ -1,6 +1,6 @@
 {
   "name": "react-ios-switch",
-  "version": "0.1.9",
+  "version": "0.1.9-alpha.1",
   "description": "React switch component",
   "author": "Matthew King <mking@clari.com>",
   "license": "MIT",
@@ -21,6 +21,7 @@
   "scripts": {
     "build-demo": "webpack --config webpack.config.demo",
     "build-lib": "webpack --config webpack.config.lib",
+    "prepare": "NODE_ENV=production npm run build-lib",
     "start": "webpack-dev-server --config webpack.config.dev"
   },
   "dependencies": {
