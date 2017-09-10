@@ -1,5 +1,16 @@
 react-ios-switch
 ===
+<img src="https://img.shields.io/npm/dm/react-ios-switch.svg">
+
+[Demo](https://clari.github.io/react-ios-switch)
+
+[CodePen](https://codepen.io/mking-clari/pen/dzKxdb)
+
+Features
+---
+- Drag or click to toggle
+- Works with labels 
+
 Usage
 ---
 ```javascript
@@ -23,3 +34,19 @@ import Switch from 'react-ios-switch';
   pendingOnColor={null}
 />
 ```
+
+Development
+---
+```
+# Install packages
+yarn
+
+# Start server
+yarn start
+
+# Visit http://localhost:8080
+```
+
+Inspirations
+---
+- [Switchery](https://abpetkov.github.io/switchery)

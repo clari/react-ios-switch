@@ -14,7 +14,7 @@ module.exports = {
   },
   devtool: 'eval',
   devServer: {
-    port: 8081,
+    port: 8080,
     hot: true,
     inline: true,
     historyApiFallback: true,

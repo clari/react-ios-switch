@@ -232,6 +232,7 @@ export default class Switch extends React.Component {
         />
         <input
           checked={checked}
+          disabled={disabled}
           onChange={this.handleChange}
           style={{
             display: 'none',
