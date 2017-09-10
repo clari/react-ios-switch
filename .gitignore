@@ -1,10 +1,5 @@
-# IntelliJ
-*.iml
-.idea
-
-# Node
 *.log
-node_modules
-
-# Webpack
+.DS_Store
+.vscode
 build
+node_modules

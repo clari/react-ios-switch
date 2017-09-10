@@ -1,11 +1,11 @@
 {
   "name": "react-ios-switch",
-  "version": "0.1.12",
+  "version": "0.1.9",
   "description": "React switch component",
   "author": "Matthew King <mking@clari.com>",
   "license": "MIT",
   "repository": "clari/react-ios-switch",
-  "main": "build/bundle.js",
+  "main": "src/lib",
   "files": [
     "build/bundle.js",
     "build/bundle.css",
@@ -19,48 +19,31 @@
     "toggle"
   ],
   "scripts": {
-    "build": "webpack --config ./webpack.config.release.js",
-    "gh-pages": "NODE_ENV=production webpack --config ./webpack.config.gh-pages.js",
-    "postversion": "git push && git push --tags",
-    "prepare": "NODE_ENV=production npm run build",
-    "start": "webpack-dev-server --config ./webpack.config.dev.js"
+    "build-demo": "webpack --config webpack.config.demo",
+    "build-lib": "webpack --config webpack.config.lib",
+    "start": "webpack-dev-server --config webpack.config.dev"
   },
   "dependencies": {
-    "classnames": "^2.2.5",
-    "d3-interpolate": "^1.1.5",
-    "dynamics.js": "^1.1.5",
-    "invariant": "^2.2.2"
+    "color-name": "^1.1.3",
+    "inline-style-prefixer": "^3.0.7",
+    "popmotion": "^7.8.1"
   },
   "peerDependencies": {
-    "react": ">=0.14.0",
-    "react-dom": ">=0.14.0"
+    "react": ">=0.14"
   },
   "devDependencies": {
-    "autoprefixer": "^6.3.0",
-    "babel-core": "^6.5.0",
-    "babel-eslint": "^5.0.0",
-    "babel-loader": "^6.2.0",
-    "babel-plugin-react-transform": "^2.0.0",
-    "babel-polyfill": "^6.5.0",
-    "babel-preset-es2015": "^6.5.0",
-    "babel-preset-react": "^6.5.0",
-    "babel-preset-stage-0": "^6.5.0",
-    "css-loader": "^0.23.0",
-    "eslint": "^1.10.0",
-    "eslint-config-airbnb": "^5.0.0",
-    "eslint-loader": "^1.3.0",
-    "eslint-plugin-babel": "^3.1.0",
-    "eslint-plugin-react": "^3.16.0",
-    "extract-text-webpack-plugin": "^1.0.0",
-    "immutable": "^3.7.6",
-    "node-sass": "^3.4.0",
-    "postcss-loader": "^0.8.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "history": "^4.7.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-transform-hmr": "^1.0.0",
-    "sass-loader": "^3.1.0",
-    "style-loader": "^0.13.0",
-    "webpack": "^1.12.0",
-    "webpack-dev-server": "^1.14.0"
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1"
   }
 }

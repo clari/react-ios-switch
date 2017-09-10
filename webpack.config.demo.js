@@ -1,16 +1,20 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const common = require('./webpack.config.common');
-
 module.exports = {
-  ...common,
-  entry: [
-    'babel-polyfill',
-    path.resolve(__dirname, 'src/dev/entrypoint'),
-  ],
-  output: {
-    publicPath: '/static/',
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        include: [
+          path.resolve(__dirname, 'packages'),
+        ],
+        loader: 'babel-loader',
+      },
+    ],
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
   },
   devtool: 'eval',
   devServer: {
