@@ -38,9 +38,9 @@ export default class Switch extends React.Component {
     
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleHandleClick = this.handleHandleClick.bind(this);
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseUp = this.handleMouseUp.bind(this);
-    this.handleThumbClick = this.handleThumbClick.bind(this);
     this.setRef = this.setRef.bind(this);
   }
 
@@ -61,19 +61,28 @@ export default class Switch extends React.Component {
     window.removeEventListener('mouseup', this.handleMouseUp);
   }
   
+  getHandleColor() {
+    return normalizeColor(this.props.handleColor);
+  }
+  
+  getHandleCursor() {
+    if (this.isDisabled()) {
+      return 'default';
+    }
+
+    return this.state.isDragging ? 'grabbing' : 'grab';
+  }
+
+  getHandleLength() {
+    return this.getHeight() - 2;
+  }
+  
   getHeight() {
     return 30;
   }
 
   getOffColor() {
     return normalizeColor(this.props.offColor);
-  }
-
-  getOffSecondaryColor() {
-    return this.getSecondaryColor({
-      color: this.props.offColor,
-      pendingColor: this.props.pendingOffColor,
-    });
   }
 
   getOffset() {
@@ -89,27 +98,20 @@ export default class Switch extends React.Component {
   }
   
   getOffsetWidth(props) {
-    return (this.getWidth() - this.getThumbLength()) - 2;
+    return (this.getWidth() - this.getHandleLength()) - 2;
   }
 
   getOnColor() {
     return normalizeColor(this.props.onColor);
   }
 
-  getOnSecondaryColor() {
-    return this.getSecondaryColor({
-      color: this.props.onColor,
-      pendingColor: this.props.pendingOnColor,
-    });
-  }
-
-  getSecondaryColor({
+  getPendingColor({
     color,
     pendingColor,
   }) {
     if (!pendingColor) {
       return color === 'white' ? 
-        // default secondary color for white color
+        // default pending color for white color
         '#dfdfdf' :
         normalizeColor(color);
     }
@@ -117,20 +119,18 @@ export default class Switch extends React.Component {
     return normalizeColor(pendingColor);
   }
 
-  getThumbColor() {
-    return normalizeColor(this.props.handleColor);
-  }
-  
-  getThumbCursor() {
-    if (this.isDisabled()) {
-      return 'default';
-    }
-
-    return this.state.isDragging ? 'grabbing' : 'grab';
+  getPendingOffColor() {
+    return this.getPendingColor({
+      color: this.props.offColor,
+      pendingColor: this.props.pendingOffColor,
+    });
   }
 
-  getThumbLength() {
-    return this.getHeight() - 2;
+  getPendingOnColor() {
+    return this.getPendingColor({
+      color: this.props.onColor,
+      pendingColor: this.props.pendingOnColor,
+    });
   }
   
   getWidth() {
@@ -152,6 +152,10 @@ export default class Switch extends React.Component {
     this.clickChange({
       checked: !this.props.checked,
     });
+  }
+  
+  handleHandleClick(e) {
+    e.stopPropagation();
   }
 
   handleMouseDown(e) {
@@ -185,9 +189,9 @@ export default class Switch extends React.Component {
     
     const prevOffset = this.props.checked ? this.getOffsetWidth() : 0;
     const checked = this.state.offset === prevOffset ?
-      // handle case when the thumb is clicked
+      // handle case when the handle is clicked
       !this.props.checked :
-      // handle case when the thumb is dragged
+      // handle case when the handle is dragged
       this.getOffsetProgress() >= 0.5;
 
     this.setState({ 
@@ -196,10 +200,6 @@ export default class Switch extends React.Component {
     });
 
     this.clickChange({ checked });
-  }
-  
-  handleThumbClick(e) {
-    e.stopPropagation();
   }
   
   isDisabled() {
@@ -227,7 +227,7 @@ export default class Switch extends React.Component {
     
     const borderColor = transform.pipe(
       easing.createExpoIn(1),
-      transform.blendColor(this.getOffSecondaryColor(), this.getOnSecondaryColor()),
+      transform.blendColor(this.getPendingOffColor(), this.getPendingOnColor()),
       transform.rgba,
     )(this.getOffsetProgress());
     
@@ -255,20 +255,20 @@ export default class Switch extends React.Component {
         }}
       >
         <span 
-          onClick={this.handleThumbClick}
+          onClick={this.handleHandleClick}
           onMouseDown={this.handleMouseDown}
           style={prefixStyle({
-            backgroundColor: this.getThumbColor(),
+            backgroundColor: this.getHandleColor(),
             borderRadius: '100%',
             boxShadow: '0 1px 3px rgba(0, 0, 0, 0.4)',
-            cursor: this.getThumbCursor(),
+            cursor: this.getHandleCursor(),
             display: 'inline-block',
-            height: this.getThumbLength(),
+            height: this.getHandleLength(),
             left: this.getOffset(),
             position: 'absolute',
             top: 0,
             transition: isDragging ? null : '0.2s',
-            width: this.getThumbLength(),
+            width: this.getHandleLength(),
           })}
         />
         <input
