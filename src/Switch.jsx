@@ -1,10 +1,26 @@
 import { easing, pointer, trackOffset, transform } from 'popmotion';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import normalizeColor from './normalizeColor';
 import prefixStyle from './prefixStyle';
 
 export default class Switch extends React.Component {
+  static propTypes = {
+    checked: PropTypes.bool,
+    className: PropTypes.string,
+    disabled: PropTypes.bool,
+    handleColor: PropTypes.string,
+    name: PropTypes.string,
+    offColor: PropTypes.string,
+    onChange: PropTypes.func,
+    onColor: PropTypes.string,
+    pendingOffColor: PropTypes.string,
+    pendingOnColor: PropTypes.string,
+    readOnly: PropTypes.bool,
+    style: PropTypes.object,
+  };
+
   static defaultProps = {
     handleColor: 'white',
     offColor: 'white',
@@ -198,6 +214,7 @@ export default class Switch extends React.Component {
       name,
       onChange,
       readOnly,
+      style,
     } = this.props;
             
     const { isDragging } = this.state;
@@ -219,20 +236,23 @@ export default class Switch extends React.Component {
         className={className}
         onClick={this.handleClick}
         ref={this.setRef}
-        style={prefixStyle({
-          backgroundColor: color,
-          border: `1px solid ${borderColor}`,
-          borderRadius: this.getHeight() / 2,
-          boxShadow: `inset 0 0 0 ${this.getOffset()}px ${borderColor}`,
-          boxSizing: 'border-box',
-          display: 'inline-block',
-          height: this.getHeight(),
-          opacity: this.isDisabled() ? 0.5 : 1,
-          position: 'relative',
-          transition: isDragging ? null : '0.2s',
-          userSelect: 'none',
-          width: this.getWidth(),
-        })}
+        style={{
+          ...prefixStyle({
+            backgroundColor: color,
+            border: `1px solid ${borderColor}`,
+            borderRadius: this.getHeight() / 2,
+            boxShadow: `inset 0 0 0 ${this.getOffset()}px ${borderColor}`,
+            boxSizing: 'border-box',
+            display: 'inline-block',
+            height: this.getHeight(),
+            opacity: this.isDisabled() ? 0.5 : 1,
+            position: 'relative',
+            transition: isDragging ? null : '0.2s',
+            userSelect: 'none',
+            width: this.getWidth(),
+          }),
+          ...style,
+        }}
       >
         <span 
           onClick={this.handleThumbClick}

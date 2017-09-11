@@ -9,12 +9,13 @@ export default class Example extends React.Component {
     this.state = {
       isColorSwitchChecked: true,
       isLabelSwitchChecked: true,
+      isStyleSwitchChecked: true,
       isSwitchChecked: true,
     };
   }
   
   render() {
-    const { isColorSwitchChecked, isLabelSwitchChecked, isSwitchChecked } = this.state;
+    const { isColorSwitchChecked, isLabelSwitchChecked, isStyleSwitchChecked, isSwitchChecked } = this.state;
     
     return (
       <div
@@ -71,7 +72,15 @@ export default class Example extends React.Component {
         </div>
         <div>
           <Switch
-            defaultChecked={false}
+            checked={isStyleSwitchChecked}
+            onChange={({ checked }) =>
+              this.setState({
+                isStyleSwitchChecked: checked,
+              })
+            }
+            style={{
+              marginLeft: 50,
+            }}
           />
         </div>
       </div>
