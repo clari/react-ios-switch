@@ -29,8 +29,8 @@ import Switch from 'react-ios-switch';
   handleColor="white"
   offColor="white"
   onChange={() => {}}
-  onColor="#4cd964"
-  pendingOffColor="#dfdfdf"
+  onColor="rgb(76, 217, 100)"
+  pendingOffColor={null}
   pendingOnColor={null}
 />
 ```
