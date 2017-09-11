@@ -21,8 +21,10 @@
   "scripts": {
     "build-demo": "webpack --config webpack.config.demo",
     "build-lib": "webpack --config webpack.config.lib",
+    "postversion": "git push && git push --tags",
     "prepare": "NODE_ENV=production npm run build-lib",
-    "start": "webpack-dev-server --config webpack.config.dev"
+    "start": "webpack-dev-server --config webpack.config.dev",
+    "version": "npm run build-lib"
   },
   "dependencies": {
     "color-name": "^1.1.3",
