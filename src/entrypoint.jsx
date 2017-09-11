@@ -8,7 +8,7 @@ ReactDOM.render(
   <BrowserRouter>
     <div>
       <Switch>
-        <Route component={Example} exact path="/label" />
+        <Route component={Example} exact path="/" />
       </Switch>
     </div>
   </BrowserRouter>,

@@ -6,16 +6,10 @@ import prefixStyle from './prefixStyle';
 
 export default class Switch extends React.Component {
   static defaultProps = {
-    disabled: false,
-    // use "handleColor" instead of "thumbColor" for backwards compatibility
     handleColor: 'white',
     offColor: 'white',
     onChange: () => {},
     onColor: 'rgb(76, 217, 100)',
-    // use "pendingOffColor" instead of "offSecondaryColor" for backwards compatibility
-    pendingOffColor: null, 
-    // use "pendingOnColor" instead of "onSecondaryColor" for backwards compatibility
-    pendingOnColor: null,
   };
   
   constructor(props) {
@@ -33,7 +27,7 @@ export default class Switch extends React.Component {
     this.handleThumbClick = this.handleThumbClick.bind(this);
     this.setRef = this.setRef.bind(this);
   }
-  
+
   clickChange({ checked }) {
     if (this.ref.parentNode && this.ref.parentNode.tagName.toLowerCase() === 'label') {
       // if the parent is a label, we don't need to emit the change event ourselves
@@ -112,7 +106,7 @@ export default class Switch extends React.Component {
   }
   
   getThumbCursor() {
-    if (this.props.disabled) {
+    if (this.isDisabled()) {
       return 'default';
     }
 
@@ -134,7 +128,7 @@ export default class Switch extends React.Component {
   }
 
   handleClick(e) {
-    if (this.props.disabled) {
+    if (this.isDisabled()) {
       return;
     }
 
@@ -145,7 +139,7 @@ export default class Switch extends React.Component {
   }
 
   handleMouseDown(e) {
-    if (this.props.disabled) {
+    if (this.isDisabled()) {
       return;
     }
   
@@ -191,13 +185,19 @@ export default class Switch extends React.Component {
   handleThumbClick(e) {
     e.stopPropagation();
   }
+  
+  isDisabled() {
+    return this.props.disabled || this.props.readOnly;
+  }
 
   render() {
     const { 
       checked,
       className,
       disabled,
+      name,
       onChange,
+      readOnly,
     } = this.props;
             
     const { isDragging } = this.state;
@@ -227,9 +227,10 @@ export default class Switch extends React.Component {
           boxSizing: 'border-box',
           display: 'inline-block',
           height: this.getHeight(),
-          opacity: disabled ? 0.5 : 1,
+          opacity: this.isDisabled() ? 0.5 : 1,
           position: 'relative',
           transition: isDragging ? null : '0.2s',
+          userSelect: 'none',
           width: this.getWidth(),
         })}
       >
@@ -253,7 +254,9 @@ export default class Switch extends React.Component {
         <input
           checked={checked}
           disabled={disabled}
+          name={name}
           onChange={this.handleChange}
+          readOnly={readOnly}
           style={{
             display: 'none',
           }}

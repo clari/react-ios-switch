@@ -22,16 +22,21 @@ import Switch from 'react-ios-switch';
   onChange={({ checked }) => {}}
 />
 
-// All props (defaults shown below)
+// All props (defaults shown)
 <Switch
-  checked={false}
-  disabled={false}
+  // Switch-specific props
   handleColor="white"
   offColor="white"
-  onChange={() => {}}
   onColor="rgb(76, 217, 100)"
-  pendingOffColor={null}
-  pendingOnColor={null}
+  pendingOffColor={undefined}
+  pendingOnColor={undefined}
+
+  // props passed through to the inner checkbox
+  checked={undefined}
+  disabled={undefined}
+  name={undefined}
+  onChange={() => {}}
+  readOnly={undefined}
 />
 ```
 

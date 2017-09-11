@@ -53,6 +53,12 @@ export default class Example extends React.Component {
         </div>
         <div>
           <Switch
+            checked
+            readOnly
+          />
+        </div>
+        <div>
+          <Switch
             checked={isColorSwitchChecked}
             offColor="rgb(0, 122, 255)"
             onColor="rgb(255, 149, 0)"
@@ -61,6 +67,11 @@ export default class Example extends React.Component {
                 isColorSwitchChecked: checked,
               })
             }
+          />
+        </div>
+        <div>
+          <Switch
+            defaultChecked={false}
           />
         </div>
       </div>
