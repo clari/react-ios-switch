@@ -11,9 +11,9 @@ export default class Switch extends React.Component {
     handleColor: 'white',
     offColor: 'white',
     onChange: () => {},
-    onColor: '#4cd964',
+    onColor: 'rgb(76, 217, 100)',
     // use "pendingOffColor" instead of "offSecondaryColor" for backwards compatibility
-    pendingOffColor: '#dfdfdf', 
+    pendingOffColor: null, 
     // use "pendingOnColor" instead of "onSecondaryColor" for backwards compatibility
     pendingOnColor: null,
   };
@@ -60,7 +60,10 @@ export default class Switch extends React.Component {
   }
 
   getOffSecondaryColor() {
-    return normalizeColor(this.props.pendingOffColor || this.props.offColor);
+    return this.getSecondaryColor({
+      color: this.props.offColor,
+      pendingColor: this.props.pendingOffColor,
+    });
   }
 
   getOffset() {
@@ -84,7 +87,24 @@ export default class Switch extends React.Component {
   }
 
   getOnSecondaryColor() {
-    return normalizeColor(this.props.pendingOnColor || this.props.onColor);
+    return this.getSecondaryColor({
+      color: this.props.onColor,
+      pendingColor: this.props.pendingOnColor,
+    });
+  }
+
+  getSecondaryColor({
+    color,
+    pendingColor,
+  }) {
+    if (!pendingColor) {
+      return color === 'white' ? 
+        // default secondary color for white color
+        '#dfdfdf' :
+        normalizeColor(color);
+    }
+
+    return normalizeColor(pendingColor);
   }
 
   getThumbColor() {
@@ -226,7 +246,7 @@ export default class Switch extends React.Component {
             left: this.getOffset(),
             position: 'absolute',
             top: 0,
-            transition: isDragging ? 'width 0.2s' : '0.2s',
+            transition: isDragging ? null : '0.2s',
             width: this.getThumbLength(),
           })}
         />

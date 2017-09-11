@@ -22,7 +22,7 @@ import Switch from 'react-ios-switch';
   onChange={({ checked }) => {}}
 />
 
-// All props (default shown below)
+// All props (defaults shown below)
 <Switch
   checked={false}
   disabled={false}
@@ -50,3 +50,4 @@ yarn start
 Inspirations
 ---
 - [Switchery](https://abpetkov.github.io/switchery)
+- [Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/visual-design/color)

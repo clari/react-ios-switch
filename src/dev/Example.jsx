@@ -7,30 +7,62 @@ export default class Example extends React.Component {
     super(props);
     
     this.state = {
-      checked: true,
+      isColorSwitchChecked: true,
+      isLabelSwitchChecked: true,
+      isSwitchChecked: true,
     };
-    
-    this.handleChange = this.handleChange.bind(this);
-  }
-  
-  handleChange({ checked }) {
-    this.setState({ checked });
   }
   
   render() {
-    const { checked } = this.state;
+    const { isColorSwitchChecked, isLabelSwitchChecked, isSwitchChecked } = this.state;
     
     return (
       <div
         style={{ margin: 50 }}
       >
-        <label>
+        <div>
           <Switch
-            checked={checked}
-            onChange={this.handleChange}
+            checked={isSwitchChecked}
+            onChange={({ checked }) =>
+              this.setState({
+                isSwitchChecked: checked,
+              })
+            }
           />
-          Setting
+        </div>
+        <label
+          style={{
+            display: 'block',
+          }}
+        >
+          <Switch
+            checked={isLabelSwitchChecked}
+            onChange={({ checked }) =>
+              this.setState({
+                isLabelSwitchChecked: checked,
+              })
+            }
+          />
+          Label
         </label>
+        <div>
+          <Switch
+            checked
+            disabled
+          />
+        </div>
+        <div>
+          <Switch
+            checked={isColorSwitchChecked}
+            offColor="rgb(0, 122, 255)"
+            onColor="rgb(255, 149, 0)"
+            onChange={({ checked }) =>
+              this.setState({
+                isColorSwitchChecked: checked,
+              })
+            }
+          />
+        </div>
       </div>
     );
   }
