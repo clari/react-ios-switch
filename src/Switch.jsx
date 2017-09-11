@@ -1,4 +1,4 @@
-import { pointer, trackOffset, transform } from 'popmotion';
+import { easing, pointer, trackOffset, transform } from 'popmotion';
 import React from 'react';
 
 import normalizeColor from './normalizeColor';
@@ -203,13 +203,13 @@ export default class Switch extends React.Component {
     const { isDragging } = this.state;
             
     const color = transform.pipe(
-      transform.spring(5, 1),
-      transform.clamp(0, 1),
+      easing.createExpoIn(2),
       transform.blendColor(this.getOffColor(), this.getOnColor()),
       transform.rgba,
     )(this.getOffsetProgress());
     
     const borderColor = transform.pipe(
+      easing.createExpoIn(1),
       transform.blendColor(this.getOffSecondaryColor(), this.getOnSecondaryColor()),
       transform.rgba,
     )(this.getOffsetProgress());
