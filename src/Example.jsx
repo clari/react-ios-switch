@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Switch from '../lib/Switch';
+import Switch from './Switch';
 
 export default class Example extends React.Component {
   constructor(props) {

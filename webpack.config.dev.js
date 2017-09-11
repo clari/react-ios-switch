@@ -7,7 +7,7 @@ module.exports = {
   ...common,
   entry: [
     'babel-polyfill',
-    path.resolve(__dirname, 'src/dev/entrypoint'),
+    path.resolve(__dirname, 'src/entrypoint'),
   ],
   output: {
     publicPath: '/static/',
