@@ -19,7 +19,7 @@ import Switch from 'react-ios-switch';
 // Simple usage
 <Switch
   checked={checked}
-  onChange={({ checked }) => {}}
+  onChange={checked => {}}
 />
 
 // All props (defaults shown)

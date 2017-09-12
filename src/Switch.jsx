@@ -44,13 +44,13 @@ export default class Switch extends React.Component {
     this.setRef = this.setRef.bind(this);
   }
 
-  clickChange({ checked }) {
+  clickChange(checked) {
     if (this.ref.parentNode && this.ref.parentNode.tagName.toLowerCase() === 'label') {
       // if the parent is a label, we don't need to emit the change event ourselves
       return;
     }
 
-    this.props.onChange({ checked });
+    this.props.onChange(checked);
   }
 
   componentDidMount() {
@@ -138,9 +138,7 @@ export default class Switch extends React.Component {
   }
   
   handleChange(e) {
-    this.props.onChange({
-      checked: e.target.checked,
-    });
+    this.props.onChange(e.target.checked);
   }
 
   handleClick(e) {
@@ -149,9 +147,7 @@ export default class Switch extends React.Component {
     }
 
     // handle case when the switch is clicked
-    this.clickChange({
-      checked: !this.props.checked,
-    });
+    this.clickChange(!this.props.checked);
   }
   
   handleHandleClick(e) {
@@ -199,7 +195,7 @@ export default class Switch extends React.Component {
       offset: null,
     });
 
-    this.clickChange({ checked });
+    this.clickChange(checked);
   }
   
   isDisabled() {

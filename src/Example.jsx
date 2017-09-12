@@ -24,7 +24,7 @@ export default class Example extends React.Component {
         <div>
           <Switch
             checked={isSwitchChecked}
-            onChange={({ checked }) =>
+            onChange={checked =>
               this.setState({
                 isSwitchChecked: checked,
               })
@@ -38,7 +38,7 @@ export default class Example extends React.Component {
         >
           <Switch
             checked={isLabelSwitchChecked}
-            onChange={({ checked }) =>
+            onChange={checked =>
               this.setState({
                 isLabelSwitchChecked: checked,
               })
@@ -63,7 +63,7 @@ export default class Example extends React.Component {
             checked={isColorSwitchChecked}
             offColor="rgb(0, 122, 255)"
             onColor="rgb(255, 149, 0)"
-            onChange={({ checked }) =>
+            onChange={checked =>
               this.setState({
                 isColorSwitchChecked: checked,
               })
@@ -73,7 +73,7 @@ export default class Example extends React.Component {
         <div>
           <Switch
             checked={isStyleSwitchChecked}
-            onChange={({ checked }) =>
+            onChange={checked =>
               this.setState({
                 isStyleSwitchChecked: checked,
               })
