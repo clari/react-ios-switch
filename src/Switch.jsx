@@ -11,6 +11,11 @@ export default class Switch extends React.Component {
     className: PropTypes.string,
     disabled: PropTypes.bool,
     handleColor: PropTypes.string,
+    inputId: PropTypes.string,
+    inputAria: PropTypes.shape({
+      label: PropTypes.string,
+      labelledby: PropTypes.string
+    }),
     name: PropTypes.string,
     offColor: PropTypes.string,
     onChange: PropTypes.func,
@@ -27,15 +32,15 @@ export default class Switch extends React.Component {
     onChange: () => {},
     onColor: 'rgb(76, 217, 100)',
   };
-  
+
   constructor(props) {
     super(props);
-    
+
     this.state = {
       isDragging: false,
       offset: null,
     };
-    
+
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleHandleClick = this.handleHandleClick.bind(this);
@@ -60,11 +65,36 @@ export default class Switch extends React.Component {
   componentWillUnmount() {
     window.removeEventListener('mouseup', this.handleMouseUp);
   }
-  
+
+  getInputProps() {
+    const inputProps = {};
+
+    /* Don't assign anything to the object if it's not passed in, we don't want
+     * empty attributes being set on the <input>
+     */
+    if (!!this.props.inputId) { inputProps.id = this.props.inputId; }
+
+    if (!!this.props.inputAria) {
+      if (!!this.props.inputAria.label) {
+        inputProps['aria-label'] = this.props.inputAria.label;
+      }
+
+      if (!!this.props.inputAria.labelledby) {
+        inputProps['aria-labelledby'] = this.props.inputAria.labelledby;
+      }
+
+      if (!!inputProps['aria-label'] && !!inputProps['aria-labelledby']) {
+        throw 'A11Y-compliant inputs may not have both an aria-label and aria-labelledby!';
+      }
+    }
+
+    return inputProps;
+  }
+
   getHandleColor() {
     return normalizeColor(this.props.handleColor);
   }
-  
+
   getHandleCursor() {
     if (this.isDisabled()) {
       return 'default';
@@ -76,7 +106,7 @@ export default class Switch extends React.Component {
   getHandleLength() {
     return this.getHeight() - 2;
   }
-  
+
   getHeight() {
     return 30;
   }
@@ -89,14 +119,14 @@ export default class Switch extends React.Component {
     if (this.state.isDragging) {
       return this.state.offset;
     }
-    
+
     return this.props.checked ? this.getOffsetWidth() : 0;
   }
-  
+
   getOffsetProgress() {
     return this.getOffset() / this.getOffsetWidth();
   }
-  
+
   getOffsetWidth(props) {
     return (this.getWidth() - this.getHandleLength()) - 2;
   }
@@ -132,11 +162,11 @@ export default class Switch extends React.Component {
       pendingColor: this.props.pendingOnColor,
     });
   }
-  
+
   getWidth() {
     return 50;
   }
-  
+
   handleChange(e) {
     this.props.onChange(e.target.checked);
   }
@@ -149,7 +179,7 @@ export default class Switch extends React.Component {
     // handle case when the switch is clicked
     this.clickChange(!this.props.checked);
   }
-  
+
   handleHandleClick(e) {
     e.stopPropagation();
   }
@@ -158,9 +188,9 @@ export default class Switch extends React.Component {
     if (this.isDisabled()) {
       return;
     }
-  
+
     this.pointerTracker = pointer(e).start();
-    
+
     this.offsetTracker = trackOffset(this.pointerTracker.x, {
       from: this.getOffset(),
       onUpdate: transform.pipe(
@@ -168,21 +198,21 @@ export default class Switch extends React.Component {
         offset => this.setState({ offset })
       ),
     }).start();
-    
+
     this.setState({
       isDragging: true,
       offset: this.getOffset(),
     });
   }
-  
+
   handleMouseUp() {
     if (!this.state.isDragging) {
       return;
     }
-  
+
     this.pointerTracker.stop();
     this.offsetTracker.stop();
-    
+
     const prevOffset = this.props.checked ? this.getOffsetWidth() : 0;
     const checked = this.state.offset === prevOffset ?
       // handle case when the handle is clicked
@@ -190,20 +220,20 @@ export default class Switch extends React.Component {
       // handle case when the handle is dragged
       this.getOffsetProgress() >= 0.5;
 
-    this.setState({ 
+    this.setState({
       isDragging: false,
       offset: null,
     });
 
     this.clickChange(checked);
   }
-  
+
   isDisabled() {
     return this.props.disabled || this.props.readOnly;
   }
 
   render() {
-    const { 
+    const {
       checked,
       className,
       disabled,
@@ -212,21 +242,21 @@ export default class Switch extends React.Component {
       readOnly,
       style,
     } = this.props;
-            
+
     const { isDragging } = this.state;
-            
+
     const color = transform.pipe(
       easing.createExpoIn(2),
       transform.blendColor(this.getOffColor(), this.getOnColor()),
       transform.rgba,
     )(this.getOffsetProgress());
-    
+
     const borderColor = transform.pipe(
       easing.createExpoIn(1),
       transform.blendColor(this.getPendingOffColor(), this.getPendingOnColor()),
       transform.rgba,
     )(this.getOffsetProgress());
-    
+
     return (
       <span
         className={className}
@@ -250,7 +280,7 @@ export default class Switch extends React.Component {
           ...style,
         }}
       >
-        <span 
+        <span
           onClick={this.handleHandleClick}
           onMouseDown={this.handleMouseDown}
           style={prefixStyle({
@@ -268,6 +298,7 @@ export default class Switch extends React.Component {
           })}
         />
         <input
+          {...this.getInputProps()}
           checked={checked}
           disabled={disabled}
           name={name}
