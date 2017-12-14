@@ -41,6 +41,7 @@ export default class Switch extends React.Component {
       offset: null,
     };
 
+    this.getInputProps = this.getInputProps.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleHandleClick = this.handleHandleClick.bind(this);
