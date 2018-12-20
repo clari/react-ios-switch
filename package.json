@@ -18,6 +18,7 @@
     "toggle"
   ],
   "scripts": {
+    "prepare": "npm run babel",
     "babel": "babel src --out-dir lib --only 'src/index.js,src/normalizeColor.js,src/prefixStyle.js,src/Switch.jsx'",
     "postversion": "git push && git push --tags",
     "start": "webpack-dev-server --config webpack.config.dev",
