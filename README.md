@@ -1,18 +1,18 @@
-react-ios-switch
-===
+# react-ios-switch
+
 <img src="https://img.shields.io/npm/dm/react-ios-switch.svg">
 
 [Demo](https://clari.github.io/react-ios-switch)
 
 [CodePen](https://codepen.io/mking-clari/pen/dzKxdb)
 
-Features
----
-- Drag or click to toggle
-- Works with labels 
+## Features
 
-Usage
----
+- Drag or click to toggle
+- Works with labels
+
+## Usage
+
 ```javascript
 import Switch from 'react-ios-switch';
 
@@ -27,6 +27,7 @@ import Switch from 'react-ios-switch';
   checked={undefined}
   className={undefined}
   disabled={undefined}
+  disableDrag={false}
   handleColor="white"
   name={undefined}
   offColor="white"
@@ -39,8 +40,8 @@ import Switch from 'react-ios-switch';
 />
 ```
 
-Development
----
+## Development
+
 ```
 # Install packages
 yarn
@@ -51,7 +52,7 @@ yarn start
 # Visit http://localhost:8080
 ```
 
-Inspirations
----
+## Inspirations
+
 - [Switchery](https://abpetkov.github.io/switchery)
 - [Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/visual-design/color)
