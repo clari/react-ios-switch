@@ -1,63 +1,78 @@
-import React from 'react';
+import React from "react";
 
-import Switch from './Switch';
+import Switch from "./Switch";
 
 export default class Example extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       isColorSwitchChecked: true,
+      isDisabledDragSwitchCheck: true,
       isLabelSwitchChecked: true,
       isStyleSwitchChecked: true,
-      isSwitchChecked: true,
+      isSwitchChecked: true
     };
   }
-  
+
   render() {
-    const { isColorSwitchChecked, isLabelSwitchChecked, isStyleSwitchChecked, isSwitchChecked } = this.state;
-    
+    const {
+      isColorSwitchChecked,
+      isDisabledDragSwitchCheck,
+      isLabelSwitchChecked,
+      isStyleSwitchChecked,
+      isSwitchChecked
+    } = this.state;
+
     return (
-      <div
-        style={{ margin: 50 }}
-      >
+      <div style={{ margin: 50 }}>
         <div>
           <Switch
             checked={isSwitchChecked}
             onChange={checked =>
               this.setState({
-                isSwitchChecked: checked,
+                isSwitchChecked: checked
               })
             }
           />
         </div>
         <label
           style={{
-            display: 'block',
+            display: "block"
           }}
         >
           <Switch
             checked={isLabelSwitchChecked}
             onChange={checked =>
               this.setState({
-                isLabelSwitchChecked: checked,
+                isLabelSwitchChecked: checked
               })
             }
           />
           Label
         </label>
         <div>
-          <Switch
-            checked
-            disabled
-          />
+          <Switch checked disabled />
         </div>
         <div>
-          <Switch
-            checked
-            readOnly
-          />
+          <Switch checked readOnly />
         </div>
+        <label
+          style={{
+            display: "block"
+          }}
+        >
+          <Switch
+            disableDrag
+            checked={isDisabledDragSwitchCheck}
+            onChange={checked =>
+              this.setState({
+                isDisabledDragSwitchCheck: checked
+              })
+            }
+          />
+          Drag disabled
+        </label>
         <div>
           <Switch
             checked={isColorSwitchChecked}
@@ -65,7 +80,7 @@ export default class Example extends React.Component {
             onColor="rgb(255, 149, 0)"
             onChange={checked =>
               this.setState({
-                isColorSwitchChecked: checked,
+                isColorSwitchChecked: checked
               })
             }
           />
@@ -75,11 +90,11 @@ export default class Example extends React.Component {
             checked={isStyleSwitchChecked}
             onChange={checked =>
               this.setState({
-                isStyleSwitchChecked: checked,
+                isStyleSwitchChecked: checked
               })
             }
             style={{
-              marginLeft: 50,
+              marginLeft: 50
             }}
           />
         </div>
