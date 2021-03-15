@@ -19,6 +19,8 @@ export default class Switch extends React.Component {
     pendingOnColor: PropTypes.string,
     readOnly: PropTypes.bool,
     style: PropTypes.object,
+    width: PropTypes.number,
+    height: Proptypes.number,
   };
 
   static defaultProps = {
@@ -78,7 +80,7 @@ export default class Switch extends React.Component {
   }
   
   getHeight() {
-    return 30;
+    return height || 30;
   }
 
   getOffColor() {
@@ -134,7 +136,7 @@ export default class Switch extends React.Component {
   }
   
   getWidth() {
-    return 50;
+    return width || 50;
   }
   
   handleChange(e) {
